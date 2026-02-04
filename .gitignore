@@ -6,7 +6,7 @@ node_modules/
 # Build output
 # Build output
 dist/
-!dist/action.js
+!dist/index.js
 
 # IDE
 .idea/
