@@ -1,0 +1,49 @@
+name: 'GitHub Contribution Minesweeper'
+description: 'Generate an animated Minesweeper game from your GitHub contributions'
+author: 'Jair0305'
+
+branding:
+  icon: 'target'
+  color: 'green'
+
+inputs:
+  github_user_name:
+    description: 'GitHub username to generate minesweeper for'
+    required: true
+  github_token:
+    description: 'GitHub token for API access'
+    required: true
+  output_path:
+    description: 'Directory to output generated SVGs'
+    required: false
+    default: 'dist'
+  mine_strategy:
+    description: 'How to place mines: all-contributions, top-contributors, or percentage'
+    required: false
+    default: 'all-contributions'
+  mine_percentage:
+    description: 'Percentage of active days to be mines (for percentage strategy, 0.05-0.50)'
+    required: false
+    default: '0.15'
+  animation_speed:
+    description: 'Animation speed in milliseconds (higher = slower)'
+    required: false
+    default: '100'
+
+outputs:
+  svg_path:
+    description: 'Path to the generated light mode SVG'
+  svg_dark_path:
+    description: 'Path to the generated dark mode SVG'
+  board_size:
+    description: 'Size of the generated board (e.g., 52x7)'
+  total_mines:
+    description: 'Total number of mines on the board'
+  moves:
+    description: 'Number of moves in the solution'
+  is_won:
+    description: 'Whether the game was won'
+
+runs:
+  using: 'node20'
+  main: 'dist/action.js'
